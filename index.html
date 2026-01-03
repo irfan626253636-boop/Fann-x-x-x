@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment List</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("https://files.catbox.moe/80vxv6.mp4") center/cover no-repeat;
+  color:#fff;
+}
+
+.wrapper{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  margin-top:40px;
+  background:rgba(20,20,30,.6);
+  backdrop-filter: blur(12px);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 0 40px rgba(0,0,0,.6);
+  text-align:center;
+}
+
+h1{
+  font-size:32px;
+}
+
+.sub{
+  margin-top:8px;
+  font-size:14px;
+  color:#d0d0d0;
+}
+
+.payment-img{
+  margin:25px 0;
+}
+
+.payment-img img{
+  width:100%;
+  max-width:260px;
+  border-radius:16px;
+}
+
+.info{
+  font-size:13px;
+  color:#cfcfcf;
+  margin-bottom:15px;
+}
+
+.btn{
+  width:100%;
+  padding:15px;
+  margin-top:12px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+  background:linear-gradient(90deg,#7f00ff,#00d2ff);
+  cursor:pointer;
+}
+
+.btn.back{
+  background:linear-gradient(90deg,#ff416c,#ff4b2b);
+}
+
+.result{
+  display:none;
+  margin-top:20px;
+}
+
+.result img{
+  width:220px;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+.rek{
+  background:#0e0e14;
+  padding:14px;
+  border-radius:12px;
+  margin-top:10px;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+.footer{
+  margin-top:20px;
+  font-size:12px;
+  color:#bdbdbd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+    <h1>Payment List</h1>
+    <div class="sub">Silakan Pilih Metode Pembayaran Di Bawah</div>
+
+    <div class="payment-img" id="gambar">
+      <img src="https://files.catbox.moe/6bp81a.jpg">
+    </div>
+
+    <div class="info" id="info">
+      Scan QR Code di bawah untuk melakukan pembayaran via QRIS
+    </div>
+
+    <!-- MENU -->
+    <div id="menu">
+      <button class="btn" onclick="qris()">QRIS</button>
+      <button class="btn" onclick="dana()">DANA</button>
+      <button class="btn" onclick="gopay()">GOPAY</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result" id="result"></div>
+
+    <!-- 🎵 MUSIC PALING BAWAH -->
+    <div style="margin-top:20px;">
+      <audio controls loop style="width:100%;">
+        <source src="https://files.catbox.moe/ckuo6y.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <div class="footer">
+      Pembayaran Banzxyyy<br>
+      Jangan lupa SS bukti ya.
+    </div>
+
+  </div>
+</div>
+
+<script>
+const menu = document.getElementById("menu");
+const result = document.getElementById("result");
+const gambar = document.getElementById("gambar");
+const info = document.getElementById("info");
+
+function qris(){
+  menu.style.display="none";
+  gambar.style.display="none";
+  info.style.display="none";
+  result.style.display="block";
+  result.innerHTML=`
+    <h3>QRIS</h3>
+    <img src="">
+    <button class="btn back" onclick="back()">⬅ BACK</button>
+  `;
+}
+
+function dana(){
+  menu.style.display="none";
+  gambar.style.display="none";
+  info.style.display="none";
+  result.style.display="block";
+  result.innerHTML=`
+    <h3>DANA</h3>
+    <div class="rek">0882015831145</div>
+    <button class="btn back" onclick="back()">⬅ BACK</button>
+  `;
+}
+
+function gopay(){
+  menu.style.display="none";
+  gambar.style.display="none";
+  info.style.display="none";
+  result.style.display="block";
+  result.innerHTML=`
+    <h3>GOPAY</h3>
+    <div class="rek">0882015831145</div>
+    <button class="btn back" onclick="back()">⬅ BACK</button>
+  `;
+}
+
+function back(){
+  result.style.display="none";
+  menu.style.display="block";
+  gambar.style.display="block";
+  info.style.display="block";
+}
+</script>
+
+</body>
+</html>
